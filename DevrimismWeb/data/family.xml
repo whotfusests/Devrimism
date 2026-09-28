@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<family>
+    
+    <generation>
+        <person>
+            <name>the Pearl</name>
+            <image>images/pearl.jpg</image>
+            <description>He is the father of Big Yahu and also the grandfather of The White Wolf, he is also the lead teacher and mentor of The White Wolf and he is known for his excellent chocolate cakes.</description>
+        </person>
+        
+        <person>
+            <name>Jenny Mod</name>
+            <image>images/jenny.jpg</image>
+            <description>She is the grandmother of The White Wolf and The Kirk she is the first larp.</description>
+        </person>
+    </generation>
+    
+    <generation>
+        <person>
+            <name>Big Yahu</name>
+            <image>images/big-yahu.jpg</image>
+            <description>He is the father of The White Wolf and The Kirk he is also the son of Pearl and the first King of Tel Aviv.</description>
+        </person>
+        
+        <person>
+            <name>the Blue</name>
+            <image>images/blue.jpg</image>
+            <description>She is married to The Big Yahu she is the mother of The White Wolf and The Kirk.</description>
+        </person>
+    </generation>
+    
+    <generation>
+        <person>
+            <name>the White Wolf</name>
+            <image>images/wolf.jpg</image>
+            <description>He is the lead figure and leader of Devrimism he is the son of Big Yahu, the grandson of Pearl and the sibling of The Kirk and he is known for his famous phrase "Oha Len!" and love for Tel Aviv.</description>
+        </person>
+        
+        <person>
+            <name>the Kirk</name>
+            <image>images/kirk.jpg</image>
+            <description>He is the sibling of The White Wolf and he is also the King of Agartha.</description>
+        </person>
+    </generation>
+    
+    <generation-gap>
+        *6 generations later*
+    </generation-gap>
+    
+    <generation>
+        <person>
+            <name>Tuyoki</name>
+            <image>images/femboy.jpg</image>
+            <description>Tuyoki is a kurdish-jewish programmer who's the 7th generation descendant of the White Wolf also he is the prophet of Femboyism.</description>
+        </person>
+        
+        <person>
+            <name>[REDACTED]</name>
+            <image>images/redacted.jpg</image>
+            <description>We don't talk about him.</description>
+        </person>
+    </generation>
+    
+</family>
