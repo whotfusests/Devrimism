@@ -1,0 +1,1906 @@
+/* =========================================
+   ROOT VARIABLES
+   ========================================= */
+
+:root {
+  --black: #120405;
+  --dark: #260609;
+  --dark-red: #3b090e;
+  --red: #5c0f16;
+  --red-light: #8f2029;
+  --red-pale: #c9575d;
+
+  --paper: #e6d4ca;
+  --paper-light: #f2e4dc;
+  --paper-dark: #bda9a0;
+
+  --border: #762029;
+}
+
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-padding-top: 125px;
+}
+
+body {
+  margin: 0;
+
+  background: var(--black);
+  color: var(--paper);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  line-height: 1.65;
+
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  padding: 15px 25px;
+
+  background: var(--dark);
+
+  border-bottom: 4px solid var(--red);
+
+  text-align: center;
+}
+
+#tn-title {
+  margin: 0 0 8px;
+
+  color: var(--paper-light);
+
+  font-size: 2rem;
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.top-nav nav {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+}
+
+.top-nav nav a {
+  padding: 6px 13px;
+
+  background: var(--dark-red);
+
+  border: 1px solid var(--border);
+
+  color: var(--paper);
+
+  text-decoration: none;
+
+  font-size: 0.85rem;
+  font-weight: bold;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.top-nav nav a:hover {
+  background: var(--red);
+
+  color: white;
+}
+
+.top-nav nav a.active {
+  background: var(--red-light);
+
+  border-color: var(--red-pale);
+
+  color: white;
+}
+
+#tn-footer {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--red-pale);
+
+  font-size: 0.78rem;
+}
+
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+main {
+  width: min(1050px, 92%);
+
+  margin: 40px auto;
+}
+
+
+/* =========================================
+   SECTIONS
+   ========================================= */
+
+.info-box,
+.figures,
+.policies,
+.tuyoki,
+.family,
+.femboyism {
+  margin-bottom: 30px;
+
+  padding: 28px;
+
+  background: var(--dark-red);
+
+  border: 2px solid var(--border);
+
+  border-left: 7px solid var(--red-light);
+}
+
+
+/* =========================================
+   HEADINGS
+   ========================================= */
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+
+  padding-bottom: 8px;
+
+  color: var(--paper-light);
+
+  font-size: 1.7rem;
+
+  line-height: 1.25;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  border-bottom: 2px solid var(--red-light);
+}
+
+strong {
+  color: var(--red-pale);
+}
+
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+.info-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 25px;
+}
+
+.info-header img {
+  width: 175px;
+  height: 175px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+
+  padding: 10px;
+
+  background: var(--dark);
+
+  border: 3px solid var(--red-light);
+}
+
+#info-desc,
+#femboyism-info-desc {
+  margin-top: 0;
+
+  color: var(--paper);
+}
+
+
+/* =========================================
+   TIMELINE
+   ========================================= */
+
+.ib-timeline {
+  margin-top: 30px;
+
+  padding-left: 25px;
+
+  border-left: 4px solid var(--red-light);
+}
+
+.ib-timeline p {
+  margin: 0 0 18px;
+
+  padding: 13px 16px;
+
+  background: var(--dark);
+
+  border: 1px solid var(--border);
+
+  color: var(--paper);
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.ib-timeline p:hover,
+.ib-timeline p.selected {
+  background: var(--red);
+}
+
+.ib-timeline p.selected {
+  border-color: var(--red-pale);
+}
+
+
+/* =========================================
+   FIGURES
+   ========================================= */
+
+.figures ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.figures li {
+  margin: 10px 0;
+
+  padding: 13px 16px;
+
+  background: var(--dark);
+
+  border-left: 4px solid var(--red);
+
+  color: var(--paper);
+
+  transition: background 0.15s ease;
+}
+
+.figures li:hover {
+  background: var(--red);
+}
+
+
+/* =========================================
+   COMMANDMENTS
+   ========================================= */
+
+.policies ol {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  counter-reset: commandments;
+}
+
+.policies li {
+  position: relative;
+
+  counter-increment: commandments;
+
+  margin: 12px 0;
+
+  padding:
+    13px
+    15px
+    13px
+    55px;
+
+  background: var(--dark);
+
+  border: 1px solid var(--border);
+
+  color: var(--paper);
+}
+
+.policies li::before {
+  content: counter(commandments);
+
+  position: absolute;
+
+  left: 12px;
+  top: 50%;
+
+  width: 28px;
+  height: 28px;
+
+  transform: translateY(-50%);
+
+  background: var(--red-light);
+
+  border: 1px solid var(--red-pale);
+
+  border-radius: 50%;
+
+  color: white;
+
+  line-height: 28px;
+
+  text-align: center;
+
+  font-weight: bold;
+}
+
+.policies li:hover {
+  background: var(--red);
+}
+
+
+/* =========================================
+   TUYOKI
+   ========================================= */
+
+.tuyoki {
+  background: var(--red);
+
+  border-left-color: var(--red-pale);
+}
+
+#tyk-desc {
+  margin: 0;
+
+  color: var(--paper-light);
+
+  font-size: 1.05rem;
+}
+
+
+/* =========================================
+   FAMILY TREE
+   ========================================= */
+
+.family {
+  position: relative;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+#family-tree {
+  width: 100%;
+
+  margin: 45px auto 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 0;
+}
+
+
+/* =========================================
+   FAMILY GENERATION
+   ========================================= */
+
+.family-generation {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 70px;
+
+  padding: 0 20px;
+}
+
+
+/* =========================================
+   FAMILY CARD
+   ========================================= */
+
+.family-card {
+  position: relative;
+
+  z-index: 5;
+
+  width: 175px;
+
+  flex: 0 0 175px;
+
+  padding: 14px;
+
+  background: var(--paper);
+
+  border: 3px solid var(--border);
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.4);
+
+  color: var(--black);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.family-card:hover {
+  transform: translateY(-7px);
+
+  border-color: var(--red-pale);
+
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.55);
+}
+
+.family-card:focus-visible {
+  outline: 3px solid var(--red-pale);
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================
+   FAMILY CARD IMAGE
+   ========================================= */
+
+.family-card img {
+  display: block;
+
+  width: 135px;
+  height: 135px;
+
+  margin: 0 auto 12px;
+
+  object-fit: cover;
+
+  background: var(--dark);
+
+  border: 3px solid var(--red-light);
+
+  border-radius: 4px;
+}
+
+
+/* =========================================
+   FAMILY CARD NAME
+   ========================================= */
+
+.family-card h3 {
+  margin:
+    5px
+    0
+    0;
+
+  color: var(--black);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.05rem;
+
+  line-height: 1.25;
+
+  text-align: center;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   MARRIAGE CONNECTOR
+   ========================================= */
+
+.family-generation[data-generation="1"]::after,
+.family-generation[data-generation="2"]::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 82px;
+
+  width: 70px;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background: var(--red-light);
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   MARRIAGE HEART
+   ========================================= */
+
+.family-generation[data-generation="1"]::before,
+.family-generation[data-generation="2"]::before {
+  content: "♥";
+
+  position: absolute;
+
+  z-index: 6;
+
+  left: 50%;
+
+  top: 82px;
+
+  width: 28px;
+  height: 28px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  background: var(--dark-red);
+
+  border: 2px solid var(--red-light);
+
+  border-radius: 50%;
+
+  color: var(--red-pale);
+
+  font-size: 13px;
+
+  line-height: 24px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   GENERATION CONNECTOR
+   ========================================= */
+
+.family-tree-connector {
+  position: relative;
+
+  width: 100%;
+
+  height: 80px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.family-tree-connector::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 2px;
+
+  transform: translateX(-50%);
+
+  background: var(--red-light);
+}
+
+.family-tree-connector span {
+  position: relative;
+
+  z-index: 3;
+
+  max-width: 90%;
+
+  padding:
+    5px
+    14px;
+
+  background: var(--dark-red);
+
+  border: 1px solid var(--border);
+
+  color: var(--red-pale);
+
+  font-size: 0.7rem;
+
+  font-weight: bold;
+
+  line-height: 1.25;
+
+  letter-spacing: 1px;
+
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+.family-tree-connector.silent {
+  height: 55px;
+}
+
+.family-tree-connector.silent span {
+  display: none;
+}
+
+
+/* =========================================
+   SIBLINGS
+   ========================================= */
+
+.family-generation[data-generation="3"] {
+  position: relative;
+
+  padding-top: 30px;
+}
+
+
+/* Horizontal sibling bar */
+
+.family-generation[data-generation="3"]::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  width: 245px;
+
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background: var(--red-light);
+
+  z-index: 1;
+}
+
+
+/* Siblings label */
+
+.family-generation[data-generation="3"]::after {
+  content: "SIBLINGS";
+
+  position: absolute;
+
+  z-index: 6;
+
+  top: -13px;
+
+  left: 50%;
+
+  padding:
+    2px
+    9px;
+
+  transform: translateX(-50%);
+
+  background: var(--dark-red);
+
+  border: 1px solid var(--border);
+
+  color: var(--red-pale);
+
+  font-size: 0.65rem;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+}
+
+
+/* Branches */
+
+.family-generation[data-generation="3"]
+.family-card:first-child::before,
+
+.family-generation[data-generation="3"]
+.family-card:last-child::before {
+  content: "";
+
+  position: absolute;
+
+  top: -30px;
+
+  left: 50%;
+
+  width: 2px;
+
+  height: 30px;
+
+  transform: translateX(-50%);
+
+  background: var(--red-light);
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   GENERATION GAP
+   ========================================= */
+
+.family-generation-gap {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  margin: 0;
+
+  padding:
+    16px
+    30px;
+
+  background: var(--dark);
+
+  border-top: 1px solid var(--border);
+
+  border-bottom: 1px solid var(--border);
+
+  color: var(--paper-light);
+
+  font-size: 0.9rem;
+
+  font-style: italic;
+
+  line-height: 1.4;
+
+  letter-spacing: 1px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   7TH GENERATION DESCENDANTS
+   ========================================= */
+
+.family-generation[data-generation="4"] {
+  position: relative;
+
+  padding-top: 30px;
+}
+
+
+/* Horizontal descendant bar */
+
+.family-generation[data-generation="4"]::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  width: 245px;
+
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background: var(--red-light);
+
+  z-index: 1;
+}
+
+
+/* Branches */
+
+.family-generation[data-generation="4"]
+.family-card:first-child::before,
+
+.family-generation[data-generation="4"]
+.family-card:last-child::before {
+  content: "";
+
+  position: absolute;
+
+  top: -30px;
+
+  left: 50%;
+
+  width: 2px;
+
+  height: 30px;
+
+  transform: translateX(-50%);
+
+  background: var(--red-light);
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   FAMILY POPUP
+   ========================================= */
+
+.family-popup {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 20px;
+
+  background:
+    rgba(
+      18,
+      4,
+      5,
+      0.86
+    );
+
+  animation: familyPopupFade 0.15s ease;
+}
+
+.family-popup-content {
+  position: relative;
+
+  width: min(
+    500px,
+    92vw
+  );
+
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  padding: 35px;
+
+  background: var(--paper-light);
+
+  border: 3px solid var(--red-light);
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.7);
+
+  color: var(--black);
+
+  text-align: center;
+
+  animation: familyPopupOpen 0.18s ease;
+}
+
+.family-popup-content img {
+  display: block;
+
+  width: 180px;
+  height: 180px;
+
+  margin: 0 auto 20px;
+
+  object-fit: cover;
+
+  background: var(--dark);
+
+  border: 3px solid var(--red-light);
+
+  border-radius: 4px;
+}
+
+.family-popup-content h2 {
+  margin-bottom: 15px;
+
+  color: var(--dark-red);
+
+  border-bottom-color: var(--red-light);
+}
+
+.family-popup-content p {
+  margin: 0;
+
+  color: var(--dark);
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+
+  text-align: left;
+}
+
+
+/* =========================================
+   POPUP CLOSE BUTTON
+   ========================================= */
+
+.family-popup-close {
+  position: absolute;
+
+  top: 8px;
+  right: 10px;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: none;
+
+  color: var(--dark-red);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 30px;
+
+  line-height: 38px;
+
+  cursor: pointer;
+
+  transition: color 0.15s ease;
+}
+
+.family-popup-close:hover {
+  color: var(--red-light);
+}
+
+
+/* =========================================
+   POPUP ANIMATIONS
+   ========================================= */
+
+@keyframes familyPopupFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes familyPopupOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================
+   FAMILY ERROR
+   ========================================= */
+
+.family-error {
+  padding: 20px;
+
+  color: var(--red-pale);
+
+  font-style: italic;
+}
+
+
+/* =========================================
+   FEMBOYISM
+   ========================================= */
+
+.femboyism {
+  margin-bottom: 30px;
+}
+
+#femboyism-desc-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+
+  padding-bottom: 8px;
+
+  color: var(--paper-light);
+
+  font-size: 1.7rem;
+
+  line-height: 1.25;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  border-bottom: 2px solid var(--red-light);
+}
+
+#femboyism-info-desc {
+  margin-top: 0;
+
+  color: var(--paper);
+}
+
+
+/* =========================================
+   FEMBOYISM FIGURES
+   ========================================= */
+
+.femboyism-figures {
+  margin-top: 35px;
+}
+
+#femboyism-figures-title {
+  margin-bottom: 20px;
+}
+
+.figure-spaces {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.figure-space {
+  min-height: 220px;
+
+  padding: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: var(--dark);
+
+  border: 2px solid var(--border);
+
+  border-top: 4px solid var(--red);
+
+  text-align: center;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.figure-space:hover {
+  background: var(--red);
+
+  border-color: var(--red-pale);
+
+  transform: translateY(-4px);
+}
+
+.figure-space h3 {
+  margin: 0 0 12px;
+
+  color: var(--paper-light);
+
+  font-size: 1.2rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.figure-space p {
+  margin: 0;
+
+  color: var(--paper);
+
+  font-size: 0.95rem;
+}
+
+
+/* =========================================
+   BACK TO TOP
+   ========================================= */
+
+#back-to-top {
+  position: fixed;
+
+  right: 20px;
+  bottom: 20px;
+
+  width: 44px;
+  height: 44px;
+
+  display: none;
+
+  z-index: 500;
+
+  background: var(--dark-red);
+
+  border: 2px solid var(--red-light);
+
+  color: var(--paper-light);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.4rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+#back-to-top.visible {
+  display: block;
+}
+
+#back-to-top:hover {
+  background: var(--red);
+
+  border-color: var(--red-pale);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+  margin-top: 50px;
+
+  padding: 25px;
+
+  background: var(--dark);
+
+  border-top: 4px solid var(--red);
+
+  text-align: center;
+}
+
+#footer {
+  display: block;
+
+  color: var(--red-pale);
+
+  font-size: 0.8rem;
+}
+
+#copyright {
+  margin: 10px 0 0;
+
+  color: var(--paper-dark);
+
+  font-size: 0.8rem;
+}
+
+
+/* =========================================
+   SELECTION
+   ========================================= */
+
+::selection {
+  background: var(--red-light);
+
+  color: white;
+}
+
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red-light);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  /* ---------------------------------------
+     GENERAL
+     --------------------------------------- */
+
+  html {
+    scroll-padding-top: 105px;
+  }
+
+  body {
+    font-size: 0.92rem;
+  }
+
+  main {
+    width: 94%;
+
+    margin: 25px auto;
+  }
+
+  .info-box,
+  .figures,
+  .policies,
+  .tuyoki,
+  .family,
+  .femboyism {
+    margin-bottom: 20px;
+
+    padding: 18px;
+
+    border-left-width: 5px;
+  }
+
+
+  /* ---------------------------------------
+     NAVIGATION
+     --------------------------------------- */
+
+  .top-nav {
+    padding: 12px 8px;
+  }
+
+  #tn-title {
+    font-size: 1.25rem;
+
+    line-height: 1.25;
+
+    letter-spacing: 1.5px;
+  }
+
+  .top-nav nav {
+    gap: 4px;
+  }
+
+  .top-nav nav a {
+    padding: 5px 7px;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.2px;
+  }
+
+  #tn-footer {
+    margin-top: 6px;
+
+    font-size: 0.68rem;
+  }
+
+
+  /* ---------------------------------------
+     HEADINGS
+     --------------------------------------- */
+
+  h2,
+  #femboyism-desc-title {
+    margin-bottom: 15px;
+
+    font-size: 1.2rem;
+
+    letter-spacing: 1px;
+  }
+
+
+  /* ---------------------------------------
+     DESCRIPTION
+     --------------------------------------- */
+
+  .info-header {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+  }
+
+  .info-header img {
+    width: 130px;
+    height: 130px;
+
+    padding: 7px;
+  }
+
+  #info-desc,
+  #femboyism-info-desc {
+    width: 100%;
+  }
+
+
+  /* ---------------------------------------
+     TIMELINE
+     --------------------------------------- */
+
+  .ib-timeline {
+    margin-top: 22px;
+
+    padding-left: 12px;
+
+    border-left-width: 3px;
+  }
+
+  .ib-timeline p {
+    margin-bottom: 12px;
+
+    padding: 10px 12px;
+
+    line-height: 1.5;
+  }
+
+
+  /* ---------------------------------------
+     FIGURES
+     --------------------------------------- */
+
+  .figures li {
+    padding: 11px 12px;
+
+    line-height: 1.5;
+  }
+
+
+  /* ---------------------------------------
+     COMMANDMENTS
+     --------------------------------------- */
+
+  .policies li {
+    padding:
+      11px
+      10px
+      11px
+      45px;
+  }
+
+  .policies li::before {
+    left: 8px;
+
+    width: 25px;
+    height: 25px;
+
+    line-height: 25px;
+  }
+
+
+  /* =======================================
+     FAMILY TREE MOBILE
+     ======================================= */
+
+  .family {
+    padding:
+      16px
+      8px;
+
+    overflow: hidden;
+  }
+
+  #family-tree {
+    width: 100%;
+
+    margin: 30px auto 5px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+
+  /* ---------------------------------------
+     GENERATIONS
+     --------------------------------------- */
+
+  .family-generation {
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    flex-wrap: nowrap;
+
+    gap: 10px;
+
+    padding:
+      0
+      4px;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    scrollbar-width: thin;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .family-generation::-webkit-scrollbar {
+    height: 5px;
+  }
+
+
+  /* ---------------------------------------
+     FAMILY CARD
+     --------------------------------------- */
+
+  .family-card {
+    width: 125px;
+
+    flex:
+      0 0
+      125px;
+
+    padding: 8px;
+
+    border-width: 2px;
+
+    border-radius: 4px;
+
+    box-shadow:
+      0 5px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .family-card:hover {
+    transform: none;
+
+    box-shadow:
+      0 7px 15px rgba(0, 0, 0, 0.45);
+  }
+
+  .family-card:active {
+    transform: scale(0.97);
+  }
+
+
+  /* ---------------------------------------
+     CARD IMAGE
+     --------------------------------------- */
+
+  .family-card img {
+    width: 95px;
+    height: 95px;
+
+    margin-bottom: 8px;
+
+    border-width: 2px;
+  }
+
+
+  /* ---------------------------------------
+     CARD NAME
+     --------------------------------------- */
+
+  .family-card h3 {
+    margin-top: 4px;
+
+    font-size: 0.85rem;
+
+    line-height: 1.2;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* ---------------------------------------
+     MARRIAGE CONNECTOR
+     --------------------------------------- */
+
+  .family-generation[data-generation="1"]::after,
+  .family-generation[data-generation="2"]::after {
+    top: 58px;
+
+    width: 18px;
+  }
+
+  .family-generation[data-generation="1"]::before,
+  .family-generation[data-generation="2"]::before {
+    top: 58px;
+
+    width: 24px;
+    height: 24px;
+
+    font-size: 11px;
+
+    line-height: 20px;
+  }
+
+
+  /* ---------------------------------------
+     GENERATION CONNECTOR
+     --------------------------------------- */
+
+  .family-tree-connector {
+    height: 55px;
+
+    flex-shrink: 0;
+  }
+
+  .family-tree-connector span {
+    max-width: 88%;
+
+    padding:
+      4px
+      8px;
+
+    font-size: 0.55rem;
+
+    line-height: 1.2;
+
+    text-align: center;
+  }
+
+  .family-tree-connector.silent {
+    height: 35px;
+  }
+
+
+  /* ---------------------------------------
+     SIBLINGS / DESCENDANTS
+     --------------------------------------- */
+
+  .family-generation[data-generation="3"],
+  .family-generation[data-generation="4"] {
+    position: relative;
+
+    padding-top: 28px;
+  }
+
+  .family-generation[data-generation="3"]::before,
+  .family-generation[data-generation="4"]::before {
+    top: 0;
+
+    left: 50%;
+
+    width: min(200px, 70%);
+
+    height: 2px;
+
+    transform: translateX(-50%);
+  }
+
+  .family-generation[data-generation="3"]::after {
+    top: -12px;
+
+    left: 50%;
+
+    padding:
+      2px
+      7px;
+
+    font-size: 0.52rem;
+
+    transform: translateX(-50%);
+  }
+
+  .family-generation[data-generation="3"]
+  .family-card:first-child::before,
+
+  .family-generation[data-generation="3"]
+  .family-card:last-child::before,
+
+  .family-generation[data-generation="4"]
+  .family-card:first-child::before,
+
+  .family-generation[data-generation="4"]
+  .family-card:last-child::before {
+    top: -28px;
+
+    height: 28px;
+
+    width: 2px;
+  }
+
+
+  /* ---------------------------------------
+     GENERATION GAP
+     --------------------------------------- */
+
+  .family-generation-gap {
+    width: 100%;
+
+    padding:
+      10px
+      12px;
+
+    font-size: 0.72rem;
+
+    line-height: 1.4;
+
+    text-align: center;
+  }
+
+
+  /* ---------------------------------------
+     FAMILY POPUP
+     --------------------------------------- */
+
+  .family-popup {
+    padding: 10px;
+  }
+
+  .family-popup-content {
+    width: 100%;
+
+    max-width: 420px;
+
+    max-height: 88vh;
+
+    padding:
+      28px
+      17px
+      20px;
+  }
+
+  .family-popup-content img {
+    width: 125px;
+    height: 125px;
+
+    margin-bottom: 15px;
+  }
+
+  .family-popup-content h2 {
+    font-size: 1.2rem;
+
+    line-height: 1.25;
+  }
+
+  .family-popup-content p {
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+  }
+
+  .family-popup-close {
+    top: 5px;
+    right: 7px;
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 28px;
+  }
+
+
+  /* ---------------------------------------
+     TUYOKI
+     --------------------------------------- */
+
+  #tyk-desc {
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+  }
+
+
+  /* ---------------------------------------
+     FEMBOYISM
+     --------------------------------------- */
+
+  .femboyism-figures {
+    margin-top: 25px;
+  }
+
+  .figure-spaces {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .figure-space {
+    min-height: 150px;
+
+    padding: 18px;
+  }
+
+  .figure-space h3 {
+    font-size: 1.05rem;
+  }
+
+  .figure-space p {
+    font-size: 0.9rem;
+  }
+
+
+  /* ---------------------------------------
+     BACK TO TOP
+     --------------------------------------- */
+
+  #back-to-top {
+    right: 12px;
+    bottom: 12px;
+
+    width: 42px;
+    height: 42px;
+  }
+
+
+  /* ---------------------------------------
+     FOOTER
+     --------------------------------------- */
+
+  footer {
+    margin-top: 30px;
+
+    padding: 20px 12px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 380px) {
+
+  #tn-title {
+    font-size: 1.05rem;
+  }
+
+  .top-nav nav a {
+    padding:
+      4px
+      6px;
+
+    font-size: 0.58rem;
+  }
+
+  main {
+    width: 96%;
+  }
+
+  .info-box,
+  .figures,
+  .policies,
+  .tuyoki,
+  .family,
+  .femboyism {
+    padding: 14px;
+  }
+
+  h2,
+  #femboyism-desc-title {
+    font-size: 1.05rem;
+  }
+
+  .family-card {
+    width: 115px;
+
+    flex-basis: 115px;
+  }
+
+  .family-card img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .family-card h3 {
+    font-size: 0.78rem;
+  }
+
+  .family-generation {
+    gap: 8px;
+  }
+
+  .family-generation[data-generation="3"]::before,
+  .family-generation[data-generation="4"]::before {
+    width: 175px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
