@@ -48,7 +48,6 @@ jobs:
             --release `
             --no-translations `
             --compiler-runtime `
-            --no-opengl-sw `
             "$pkg\Devrimism.exe"
 
           Copy-Item `
@@ -56,7 +55,7 @@ jobs:
             "$pkg\DevrimismWeb" `
             -Recurse -Force
 
-      - name: ZIP
+      - name: Create ZIP
         shell: pwsh
         run: |
           Compress-Archive `
