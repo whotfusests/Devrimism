@@ -20,7 +20,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2) Install Qt 6 with the WebEngine module ----------------------------
+      # 2) Install Qt 6 with WebEngine + its required dependencies -----------
+      #    Qt WebEngine needs WebChannel and Positioning; without them
+      #    find_package(Qt6 COMPONENTS WebEngineWidgets) fails.
       - name: Install Qt 6
         uses: jurplel/install-qt-action@v4
         with:
@@ -28,7 +30,7 @@ jobs:
           host:    'windows'
           target:  'desktop'
           arch:    'win64_msvc2019_64'
-          modules: 'qtwebengine'
+          modules: 'qtwebengine qtwebchannel qtpositioning'
           cache:   true
 
       # 3) Configure CMake (Release) -----------------------------------------
