@@ -1,0 +1,104 @@
+name: Build Windows
+
+on:
+  push:
+    branches: [ main, master ]
+    tags:     [ 'v*' ]
+  pull_request:
+    branches: [ main, master ]
+
+# Required so the workflow can create a GitHub Release on tags.
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      # 1) Get the source code ------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2) Install Qt 6 with the WebEngine module ----------------------------
+      - name: Install Qt 6
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.7.3'
+          host:    'windows'
+          target:  'desktop'
+          arch:    'win64_msvc2019_64'
+          modules: 'qtwebengine'
+          cache:   true
+
+      # 3) Configure CMake (Release) -----------------------------------------
+      - name: Configure CMake
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      # 4) Build --------------------------------------------------------------
+      - name: Build (Release)
+        run: cmake --build build --config Release
+
+      # 5) Prepare a clean distributable folder and run windeployqt ----------
+      - name: Prepare package directory
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          $root = $env:GITHUB_WORKSPACE
+          $pkg  = Join-Path $root "package\Devrimism-Win"
+          $exe  = Join-Path $root "build\Release\Devrimism.exe"
+
+          if (-not (Test-Path $exe)) {
+            throw "Devrimism.exe was not produced at $exe"
+          }
+
+          New-Item -ItemType Directory -Force -Path $pkg | Out-Null
+          Copy-Item -Path $exe -Destination $pkg -Force
+
+          Write-Host "Running windeployqt on $pkg\Devrimism.exe"
+          & windeployqt `
+              --release `
+              --no-translations `
+              --compiler-runtime `
+              --no-system-d3d-compiler `
+              (Join-Path $pkg "Devrimism.exe")
+
+          # Bundle the website folder next to the .exe
+          $site = Join-Path $root "DevrimismWeb"
+          if (-not (Test-Path $site)) {
+            throw "Website folder not found at $site"
+          }
+          Copy-Item -Recurse -Force $site (Join-Path $pkg "DevrimismWeb")
+
+          Write-Host "Package contents:"
+          Get-ChildItem -Recurse $pkg | Select-Object FullName
+
+      # 6) Create the ZIP -----------------------------------------------------
+      - name: Create ZIP archive
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $pkg = Join-Path $env:GITHUB_WORKSPACE "package\Devrimism-Win"
+          $zip = Join-Path $env:GITHUB_WORKSPACE "Devrimism-Win.zip"
+          if (Test-Path $zip) { Remove-Item $zip -Force }
+          Compress-Archive -Path (Join-Path $pkg "*") -DestinationPath $zip -Force
+          Write-Host "Created $zip"
+
+      # 7) Upload the artifact (available on every push / PR) -----------------
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Devrimism
+          path: Devrimism-Win.zip
+          if-no-files-found: error
+
+      # 8) Create a GitHub Release when a tag like v1.0.0 is pushed -----------
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Devrimism-Win.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
